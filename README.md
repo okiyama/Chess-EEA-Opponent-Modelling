@@ -10,3 +10,7 @@ The end result is a webpage frontend where users can be presented with a chess p
 The basic idea is to present a real opponent with a chess puzzle and see what move they come up with for it. Given that move, we will evolve a set of models (in our case, represented by chess engines, varying them either by search depth, time to search or an ELO variable if the engine provides it) which come up with that move and all previous moves the player has shown us. Then we find a new puzzle which maximizes the disagreement among the existing models and present that to the real opponent. Rinse and repeat from there. This makes it so that inaccurate models are culled quickly and we get maximum information out of the opponent for each puzzle. 
 
 The entire process is predicated on the assumption that evolving models is cheap and getting moves from an opponent is expensive. This should be true in terms of keeping a user interested in this experiment.
+
+
+# TODO:  
+ * It would be cool and smart if things like number of opponents, time for evolution and what not were in a config file

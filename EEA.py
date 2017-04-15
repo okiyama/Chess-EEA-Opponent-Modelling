@@ -1,9 +1,7 @@
-#Main method for running EEA to model opponents in Chess
-#TODO: It would be cool and smart if things like number of opponents, time for evolution and what not were in a config file
+import Test
+import TestSet
 
-#python chess: https://python-chess.readthedocs.io/en/v0.17.0/
-
-class EEA(object):
+class EEA:
 	def __init__(self):
 		""" Initializes EEA to have a random set of tests and opponent models """
 		self.realOpponent = CommandLineMoveGetter()
@@ -14,10 +12,10 @@ class EEA(object):
 	def run(self):
 		done = false
 		opponentEvolver = OpponentEvolver(self.testSet) #Will this pass reference correctly? Want it to auto-update
-		testEvolver = TestEvolver(self.)
+		testGetter = EEATestEvolver(self.testSet)
 		while not done:
 			opponentEvolver.evolve(self.currentTest)
-			self.currentTest = testEvolver.findBestTest(opponentEvolver.getOpponentModels())
+			self.currentTest = testGetter.getNextTest(opponentEvolver.getOpponentModels(), self.testSet)
 			self.currentTest.getExpectedMove(self.realOpponent)
 			done = true
 
@@ -36,5 +34,4 @@ goto loop
 
 if (__name__ == "__main__"):
 	eea = EEA()
-	eea.initialize()
 	eea.run()
