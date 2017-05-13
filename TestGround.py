@@ -1,4 +1,4 @@
-from CommandLineMoveGetter import CommandLineMoveGetter #TODO: Why do I have to do it like this? I want to just import like I did in my other project
+from CommandLineMoveGetter import CommandLineMoveGetter
 import chess
 
 class TestGround:
