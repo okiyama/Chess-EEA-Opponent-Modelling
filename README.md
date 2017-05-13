@@ -14,3 +14,4 @@ The entire process is predicated on the assumption that evolving models is cheap
 
 # TODO:  
  * It would be cool and smart if things like number of opponents, time for evolution and what not were in a config file
+ * Get random move from random game in RandomTestGetter
