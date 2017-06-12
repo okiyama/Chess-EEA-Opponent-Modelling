@@ -1,32 +1,33 @@
 Data required: 
-	List of puzzles - chess boards where the legal moves will result in getting information about how opponent thinks
-	Moves from opponent - In some standardized (pgn?) format
+    List of puzzles - chess boards where the legal moves will result in getting information about how opponent thinks
+    Moves from opponent - In some standardized (pgn?) format
 
 Models:
-	Test - Contains a ChessBoard as well as an opponent move
-	* ChessBoard - A single board/puzzle we will give to the opponent models to get a move out that gives us more information.
-	* Move - Single move that takes a board from one state to another. Probably just stored as a pgn string
-	TestSet - A set of ChessBoards that represent all tests run so far. Opponent models must agree on next moves with known
-	OpponentModel - Has a MoveGetter as well as a reference to the current TestSet. Has the logic for how it evolves?
+    Test - Contains a ChessBoard as well as an opponent move
+    * ChessBoard - A single board/puzzle we will give to the opponent models to get a move out that gives us more information.
+    * Move - Single move that takes a board from one state to another. Probably just stored as a pgn string
+    TestSet - A set of ChessBoards that represent all tests run so far. Opponent models must agree on next moves with known
+    OpponentModel - Has a MoveGetter as well as a reference to the current TestSet. Has the logic for how it evolves?
 * = We will use the Python-Chess representation for these
 
 Controllers:
-	MoveGetter - Interface that lets us get moves either from a known database or an opponent with a nice chessboard view of some sort
-	TestEvolver - Finds tests that will maximize disagreement amongst models
-	OponnentModelEvolver - Evoles the models
-	EEA.py - Essentially main.py, runs everything at a top level
+    MoveGetter - Interface that lets us get moves either from a known database or an opponent with a nice chessboard view of some sort
+    TestEvolver - Finds tests that will maximize disagreement amongst models
+    OponnentModelEvolver - Evoles the models
+    EEA.py - Essentially main.py, runs everything at a top level
 
 
-	TestSet 1:M Test
-	Test 1:1 ChessBoard,Move (known correct move)
+    TestSet 1:M Test
+    Test 1:1 ChessBoard,Move (known correct move)
 
 Dealing with piece promotion will be a little annoying
 
 Hard parts:
-	Getting tests to present to a user - Perhaps we could take a pgn database and pre-process it into an sqllite database of board positions
-	Getting a move from a user
-	Interfacing with chess engines - Particularly, how do we evolve a parameter of these engines?
+    Getting tests to present to a user - Perhaps we could take a pgn database and pre-process it into an sqllite database of board positions
+    Getting a move from a user
+    Interfacing with chess engines - Particularly, how do we evolve a parameter of these engines?
 
 
 python chess: https://python-chess.readthedocs.io/en/v0.17.0/
 FEN: https://en.wikipedia.org/wiki/Forsyth%E2%80%93Edwards_Notation - This is what I will use to represent a particular board state, especially in a database
+http://www.pgnmentor.com/files.html has pgn files for individual players! Awesome
