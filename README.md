@@ -12,6 +12,4 @@ The basic idea is to present a real opponent with a chess puzzle and see what mo
 The entire process is predicated on the assumption that evolving models is cheap and getting moves from an opponent is expensive. This should be true in terms of keeping a user interested in this experiment.
 
 
-# TODO:  
- * It would be cool and smart if things like number of opponents, time for evolution and what not were in a config file
- * Get random move from random game in RandomTestGetter
+TODO tracked on Trello now: https://trello.com/b/cVMLJZxm/chess-eea
