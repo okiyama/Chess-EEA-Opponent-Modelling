@@ -1,5 +1,6 @@
 from CommandLineMoveGetter import CommandLineMoveGetter
 from RandomTestGetter import RandomTestGetter
+from GUIMoveGetter import GUIMoveGetter
 import chess, time, chess.uci
 
 class TestGround:
@@ -16,11 +17,12 @@ class TestGround:
         testGetter = RandomTestGetter()
         randomTest = testGetter.getNextTest(None, None)
         board = randomTest.board
-        moveGetter = CommandLineMoveGetter()
+        moveGetter = GUIMoveGetter()
         while True:
             move = moveGetter.getMove(board)
             randomTest.actualMove = move
             randomTest = testGetter.getNextTest(None, None)
+            return
 
     def openUCIengine(self, location):
         engine = chess.uci.popen_engine(location)
@@ -33,5 +35,5 @@ class TestGround:
 if __name__ == "__main__":
     testGround = TestGround()
     # testGround.playNormalChessGame()
-    # testGround.solveRandomTests()
-    testGround.openUCIengine("./stockfish-8-win/Windows/stockfish_8_x64.exe")
+    testGround.solveRandomTests()
+    # testGround.openUCIengine("./stockfish-8-win/Windows/stockfish_8_x64.exe")
