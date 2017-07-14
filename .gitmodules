@@ -1,0 +1,3 @@
+[submodule "ChessBoardDisplay"]
+	path = ChessBoardDisplay
+	url = https://github.com/okiyama/ChessBoardDisplay
